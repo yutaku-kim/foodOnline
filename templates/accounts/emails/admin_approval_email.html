@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hi {{user.first_nmame}},
+
+{% if is_approved %}
+Your restaurant has been approved by ourt admin team
+{% else %}
+We're sorry you are not eligible for publishing your food menu on ourt amrket
+{% endif %}
+
+
+
+{% endautoescape %}
