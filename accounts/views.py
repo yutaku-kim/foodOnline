@@ -97,6 +97,8 @@ def registerVendor(request):
             vendor.user = user
             vendor_name = v_form.cleaned_data['vendor_name']
             vendor.vendor_slug = slugify(vendor_name)+'-'+str(user.id)
+            vendor_name = v_form.cleaned_data['vendor_name']
+            vendor.vendor_slug = slugify(vendor_name)+'-'+str(user.id)
             user_profile = UserProfile.objects.get(user=user)
             vendor.user_profile = user_profile
             vendor.save()
@@ -105,7 +107,6 @@ def registerVendor(request):
             mail_subject = 'Please activate your account'
             email_template = 'accounts/emails/account_verification_email.html'
             send_verification_email(request, user, mail_subject, email_template)
-
             messages.success(request, 'Your account has been registered sucessfully! Please wait for the approval.')
             return redirect('registerVendor')
         else:
