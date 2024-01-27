@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'customers',
     'django.contrib.gis',
     'marketplace',
     'menu',
@@ -73,6 +74,7 @@ TEMPLATES = [
                 'accounts.context_processors.get_google_api',
                 'marketplace.context_processors.get_cart_counter',
                 'marketplace.context_processors.get_cart_amounts', 
+                'accounts.context_processors.get_user_profile',
             ],
         },
     },
